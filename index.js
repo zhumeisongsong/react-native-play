@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import Game from './js/App';
 
-AppRegistry.registerComponent('Play', () => App);
+AppRegistry.registerComponent('Play', () => Game);
