@@ -9,7 +9,9 @@ import {
 class Square extends Component {
   render() {
     return (
-      <Text style={styles.square} onPress={() => { this.props.onPress() }}>{this.props.value}</Text>
+      <Text style={styles.square} onPress={() => { this.props.onPress() }}>
+        {this.props.value}
+      </Text>
     )
   }
 }
@@ -37,10 +39,7 @@ class Board extends Component {
 
   renderSquare(i) {
     return (
-      <Square
-      style={styles.squareText}
-        value={this.state.squares[i]}
-        onPress={() => { this.handlePress(i) }} />
+      <Square value={this.state.squares[i]} onPress={() => { this.handlePress(i) }} />
     )
   }
 
@@ -80,7 +79,7 @@ export default class Game extends Component {
     super(props)
     this.state = {
       history: [{
-        squares: Array(9).fill(null),
+        squares: Array(9).fill(''),
       }],
       xIsNext: true,
     }
@@ -98,29 +97,31 @@ export default class Game extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    alignItems:'center',
+    flex: 1,
+    alignItems: 'center',
     marginTop: 20,
   },
   board: {
-     flex:4,
+    flex: 4,
   },
   info: {
     flex: 1,
   },
   boardRow: {
-    flexDirection:'row',
+    flexDirection: 'row',
   },
   square: {
-    width:120,
-    height:120,
-    backgroundColor: '#333',
-    fontSize: 50,
-    color:'#fff',
+    width: 120,
+    height: 120,
     borderWidth: 2,
     borderColor: '#fff',
+    backgroundColor: '#333',
     marginRight: -2,
     marginBottom: -2,
+    paddingTop:20,
+    fontSize: 70,
+    color: '#fff',
+    textAlign:'center',
   },
 });
 
